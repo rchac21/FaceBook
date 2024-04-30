@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/settings.css' %}">
+</head>
+<body class="container">
+    <h1>Settings</h1>
+    <form action="{% url 'change_username' email %}">
+        {% csrf_token %}
+        <button type="submit">Change Username</button>
+    </form>
+    <form action="{% url 'change_password' email %}">
+        {% csrf_token %}
+        <button type="submit">Change Password</button>
+    </form>
+    <form action="{% url 'remove_account' email %}">
+        {% csrf_token %}
+        <button type="submit">Remove Account</button>
+    </form>
+    <div><a href="{% url 'main_page' email %}">Main Page</a></div>
+</body>
+</html>

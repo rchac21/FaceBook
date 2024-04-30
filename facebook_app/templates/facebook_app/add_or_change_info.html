@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add or Change Info</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/add_or_change_info.css' %}">
+</head>
+<body>
+    <h1>Add or Change Info</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ form.as_p }}</p>
+        <button type="submit">ADD</button>
+    </form>
+</body>
+</html>

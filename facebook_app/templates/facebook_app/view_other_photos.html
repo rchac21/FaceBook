@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_other_photos.css' %}">
+</head>
+<body>
+    <h1>Photos</h1>
+    <div>
+        {% if photos is not None %}
+            {% for photo in photos %}
+                <img src="{{ photo.image.url }}" alt="Photo">
+            {% endfor %}
+        {% else %}
+            <p class="no-photo">No Photos</p>
+        {% endif %}
+    </div>
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+</body>
+</html>
+

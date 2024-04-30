@@ -1,0 +1,46 @@
+h1{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.link {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.link a{
+    color: rebeccapurple;
+    
+}
+
+.resp{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.req{
+    text-align: center;
+    margin-top: 40px;
+}
+p{
+    display: inline;
+    font-size: 1.2em;
+}
+
+button{
+    width: 80px;
+    font-size: 0.8em;
+    color: blue;
+}
+.resp h2{
+    color: red;
+}
+.req h2{
+    color: blue;
+}
+.user{
+    margin: 10px;
+}
+form{
+    margin-bottom: 40px;
+}

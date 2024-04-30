@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_other_posts.css' %}">
+</head>
+<body>
+    <h1>Posts</h1>
+    {% if size is None %}
+        <p class="no-post">No Posts</p>
+    {% else %}
+        {% for post in posts %}
+           <p><h4>post:</h4> {{ post.post }}</p> 
+        {% endfor %}
+    {% endif %}
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+</body>
+</html>

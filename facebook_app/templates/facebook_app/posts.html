@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/posts.css' %}">
+</head>
+<body>
+    <h1>Posts</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if size is None %}
+           <p>No Posts</p>
+        {% else %}
+            {% for post in posts %}
+            <div>
+                <h4>post:</h4> {{ post.post }}
+                <button type="submit" name="remove" value="{{ post.id }}">remove</button>
+            </div> 
+            {% endfor %}
+        {% endif %}
+    </form>
+    <div class="link"><a href="{% url 'myProfile' email %}">My Profile</a></div>
+</body>
+</html>

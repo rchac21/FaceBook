@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+}
+.link{
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.link a{
+    color: red;
+}
+.profile{ 
+    display: grid;
+    place-items: center;
+}
+.post-photo{
+    display: inline;
+}
+.post-photo button{
+    width: 80px;
+}
+.pos-pot{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+h4{
+    display: inline;
+}
+.but button{
+    width: 100px;
+    margin-bottom: 10px;
+}
+.username{
+    display: block;
+}
+button{
+    color: blue;
+}

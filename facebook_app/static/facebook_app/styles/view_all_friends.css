@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    color: blue;
+    margin-bottom: 40px;
+}
+.link{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+.link a{
+    color: red;
+}
+.no-frnd{
+    text-align: center;
+}
+button{
+    font-size: 0.7em;
+    display: inline;
+    color: blue;
+}
+.frnd{
+    margin-bottom: 10px;
+}
+span{
+    font-size: 1.2em;
+}

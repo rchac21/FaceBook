@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    color: blue;
+ }
+ .link{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2em;
+ }
+ .link a{
+    color: red;
+ }
+ h4{
+    display: inline;
+ }

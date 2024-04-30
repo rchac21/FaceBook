@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find New Friends</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/find_new_friends.css' %}">
+</head>
+<body>
+    <h1>Find New Friends</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="resp">
+            <h2>Friend requsets</h2>
+            {% if resp_pot_friends is not None %}
+                {% for resp_pot_friend in resp_pot_friends %}
+                  <div class="user">
+                    <p>{{ resp_pot_friend.username }}</p>
+                    <button type="submit" name="response" value="{{ resp_pot_friend.email }}">Response</button> 
+                    <button type="submit" name="view" value="{{ resp_pot_friend.email }}">View Profile</button>
+                  </div>
+                {% endfor %}             
+            {% else %}
+            <p class="text">No new requests</p>
+            {% endif %}
+        </div>
+
+        <div class="req">
+            <h2>People you may know</h2>
+            {% if size is None %}
+            <p class="text">No Result</p>
+            {% else %}
+                {% for pot_friend in pot_friends %}
+                  <div class="user">
+                    <p>{{ pot_friend.username }}</p>
+                    <button type="submit" name="add" value="{{ pot_friend.email }}">Add Friend</button> 
+                    <button type="submit" name="view" value="{{ pot_friend.email }}">View Profile</button>        
+                  </div>      
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </form>
+    <div class="link"><a href="{% url 'main_page' email %}">Main Page</a></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Mutual Friends</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_mutual_friends.css' %}">
+</head>
+<body>
+    <h1>View Mutual Friends</h1>
+    {% if mutual_friends is not None %}
+        <form method="post">
+            {% csrf_token %}
+            {% for mutual_friend in mutual_friends %}
+              <div class="mutual-frnd">
+               <span>{{ mutual_friend.username }}</span>
+               <button type="submit" name="delete" value="{{ mutual_friend.email }}">delete friend</button> 
+               <button type="submit" name="view" value="{{ mutual_friend.email }}">view profile</button> 
+              </div>
+            {% endfor %}
+        </form>
+    {% else %}
+        <p class="no-frnd">No Mutual Friends</p>
+    {% endif %}
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+</body>
+</html>

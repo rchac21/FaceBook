@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/personal_info.css' %}">
+</head>
+<body>
+    <h1>Personal Info</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h3>experience</h3>
+        <a href="{% url 'add_experience' email %}">add experience</a>
+        {% if experience is not None %}
+           <div class="info2">
+             <div class="info"><h4>work:</h4> {{ experience }}</div>
+             <button type="submit" name="remove" value="experience">remove</button> 
+           </div>
+        {% endif %}
+
+        <h3>education</h3>
+        <div><a href="{% url 'add_university' email %}">add University</a></div>
+        <div><a href="{% url 'add_school' email %}">add School</a></div>
+        {% if university is not None %}
+           <div class="info2">
+             <div class="info"><h4>University:</h4> {{ university }}</div>
+             <button type="submit" name="remove" value="university">remove</button> 
+           </div>
+        {% endif %}
+
+        {% if school is not None %}
+           <div class="info2">
+              <div class="info"><h4>School:</h4> {{ school }}</div>
+              <button type="submit" name="remove" value="school">remove</button>
+           </div>
+        {% endif %}
+
+        <h3>location</h3>
+        <div><a href="{% url 'add_country' email %}">add Country</a></div>
+        <div><a href="{% url 'add_city' email %}">add City</a></div>
+        {% if country is not None and city is not None %}
+           <div class="info2">
+              <div class="info"><h4>Location:</h4> {{ city }}, {{ country }}</div>
+              <button type="submit" name="remove" value="city_country">remove</button>
+           </div> 
+        {% endif %}
+
+        {% if country is not None and city is None %}
+           <div class="info2">
+              <div class="info"><h4>Location:</h4> {{ country }}</div>
+              <button type="submit" name="remove" value="country">remove</button>
+           </div> 
+        {% endif %}
+
+        {% if country is None and city is not None %}
+           <div class="info2">
+              <div class="info"><h4>Location:</h4> {{ city }}</div>
+              <button type="submit" name="remove" value="city">remove</button>
+           </div> 
+        {% endif %}
+
+        <h3>contact info</h3>
+        <div><a href="{% url 'change_phone' email %}">change phone number</a></div>
+        <div><a href="{% url 'change_email' email %}">change email</a></div>
+        <p><h4>phone number:</h4> {{ phone_num }}</p>
+        <p><h4>email:</h4> {{ email }}</p>
+
+        <h3>main info</h3>
+        <div><a href="{% url 'change_gender' email %}">change gender</a></div>
+        <div><a href="{% url 'change_birhday' email %}">change birhday</a></div>
+        <p><h4>gender:</h4> {{ gender }}</p>
+        <p><h4>birthday:</h4> {{ birthday }}</p>
+    </form>
+    <div class="link"><a href="{% url 'myProfile' email %}">My Profile</a></div>
+</body>
+</html>

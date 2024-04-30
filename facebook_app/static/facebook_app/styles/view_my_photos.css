@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+    color: blue;
+ }
+ button{
+    color: blue;
+ }
+ img{
+    display: block;
+ }
+.link{
+    text-align: center;
+    margin-top: 40px;
+ }
+.link a{
+    color: red;
+ }
+.but{
+    margin-top: 5px;
+ }
+ p{
+    text-align: center;
+ }
+.user-photo{
+    margin-bottom: 15px;
+ }

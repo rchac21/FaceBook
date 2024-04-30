@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+    color: blue;
+    margin-bottom: 40px;
+}
+.link{
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.link a{
+    color: red;
+}
+h4{
+    display: inline;
+}
+.no-post{
+    text-align: center;
+}

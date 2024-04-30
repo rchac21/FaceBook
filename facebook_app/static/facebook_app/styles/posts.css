@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    color: blue;
+}
+.posts{
+    display: inline;
+}
+button{
+    display: inline;
+    color: blue;
+    margin-left: 5px;
+}
+form{
+    margin-top: 40px;
+    text-align: center;
+}
+form div{  
+    margin-top: 10px;
+}
+.link{
+    text-align: center;
+    margin-top: 20px;
+}
+.link a{
+    color: red;
+    font-size: 1em;
+}
+h4{
+    display: inline;
+}

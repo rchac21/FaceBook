@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    place-items: center; 
+    gap: 10px;
+ }
+
+ h1{
+    color: blue;
+ }
+
+ button{
+     width: 250px;
+     height: 30px;
+     color: blue;
+ }
+
+ a{
+     font-size: 1.2em;
+     color: red;
+ }
+ div{
+     margin-top: 20px;
+ }

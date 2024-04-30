@@ -1,0 +1,51 @@
+.profile{ 
+    display: grid;
+    place-items: center;
+}
+h1{
+    text-align: center;
+}
+.connection{
+    margin-bottom: 30px;
+}
+.connection button{
+    width: 110px;
+}
+.pos-pot{
+    display: inline;
+    margin-right: 20px;
+}
+.pos-pot button{
+    width: 100px;
+    
+}
+button{
+    color: blue;
+}
+.friends{
+    margin-top: 30px;
+}
+.friends form{
+    display: inline;
+}
+.friends form button{
+    width: 130px;
+}
+.link{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+.link a{
+    color: red;
+}
+h3{
+    margin-top: 30px;
+}
+h4{
+    display: inline;
+}
+.pers-info button{
+    width: 100px;
+}

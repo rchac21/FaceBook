@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    place-items: center;
+    gap: 20px; 
+}
+h1{
+color: blue;
+font-size: 2em;
+}
+.btn1{
+background-color: rgb(85, 85, 228);
+font-size: 1.3em;
+width: 220px;
+height: 35px;
+}
+.btn2{
+background-color: rgb(101, 212, 101);
+font-size: 1.3em;
+width: 200px;
+height: 35px;
+}
+div form{
+    display: grid;
+    place-items: center; 
+    gap: 5px;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 1.5em;
+    padding: 0px;
+    margin: 0px;
+}

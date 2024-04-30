@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/myProfile.css' %}">
+</head>
+<body>
+    <div class="profile">
+      <div>
+        <h1>My Profile</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% if exists %}
+                <div><img src="{{ profile_photo.image.url }}" alt="Photo"></div>
+                <button type="submit" name="delete" value="delete">delete profile photo</button> 
+                <button type="submit" name="change" value="change">change profile photo</button>
+            {% else %}
+                <div><img src="{{ profile_photo.image.url }}" alt="Photo"></div>
+                <button type="submit" name="upload_photo" value="upload_photo">upload profile photo</button> 
+            {% endif %}
+            <h4 class="username">{{ username }}</h4>
+            <p>{{ num_friends }} friends</p>
+        </form>
+        <div class="pos-pot">
+            <form action="{% url 'posts' email %}" class="post-photo">
+                {% csrf_token %}
+                <button type="submit">posts</button>
+            </form>
+            <form action="{% url 'view_my_photos' email %}" class="post-photo">
+                {% csrf_token %}
+                <button type="submit">photos</button>
+            </form>
+            <form action="{% url 'add_post' email %}" class="post-photo">
+                {% csrf_token %}
+                <button type="submit">add post</button>
+            </form>
+            <form action="{% url 'upload_photo' email=email text='view_my_photos' %}" class="post-photo">
+                {% csrf_token %}
+                <button type="submit">add photo</button>
+            </form>
+        </div>
+        <h3>Details</h3>
+
+        {% if experience is not None %}
+        <p><h4>Experience:</h4> {{ experience }}</p>
+        {% endif %}
+
+        {% if university is not None %}
+        <p><h4>University:</h4> {{ university }}</p>
+        {% endif %}
+
+        {% if school is not None %}
+        <p><h4>School:</h4> {{ school }}</p>
+        {% endif %}
+
+        {% if country is not None and city is not None %}
+        <p><h4>Location:</h4> {{ city }}, {{ country }}</p>
+        {% endif %}
+
+        {% if country is not None and city is None %}
+        <p><h4>Location:</h4> {{ country }}</p>
+        {% endif %}
+
+        {% if country is None and city is not None %}
+        <p><h4>Location:</h4> {{ city }}</p>
+        {% endif %}
+
+        <form action="{% url 'personal_info' email %}" class="but">
+            {% csrf_token %}
+            <button type="submit">personal info</button>
+        </form>
+        <form action="{% url 'view_all_friends' email %}" class="but">
+            {% csrf_token %}
+            <button type="submit">view all friends</button>
+        </form>
+      </div>
+    </div>
+    <div class="link"><a href="{% url 'main_page' email %}">Main Page</a></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    place-items: center; 
+    gap: 10px;
+} 
+
+button {
+    width: 250px;
+    height: 30px;
+    color: blue;
+}
+
+h1 {
+    color: blue;
+}
+
+.link {
+    font-size: 1.2em;
+    color: red;
+}
+.news button{
+     font-size: 0.5em;
+     width: 60px;
+     height: 20px;
+     margin-top: 30px;
+}
+h4,h3 {
+    display: inline;
+}
+img{
+    margin-top: 5px;
+}

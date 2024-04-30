@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/main_page.css' %}">
+</head>
+<body class="container">
+    <h1>Main Page</h1>
+    <form action="{% url 'myProfile' email %}">
+        {% csrf_token %}
+        <button type="submit" class="but">My Profile</button>
+    </form>
+    <form action="{% url 'otherProfile' email=email text='None' %}">
+        {% csrf_token %}
+        <button type="submit">View Other Profile</button>
+    </form>
+    <form action="{% url 'find_new_friends' email %}">
+        {% csrf_token %}
+        <button type="submit">Find New Friends</button>
+    </form>
+    <form action="{% url 'settings' email %}">
+        {% csrf_token %}
+        <button type="submit">Settings</button>
+    </form>
+    
+    <div><a href="{% url 'login' %}" class="link">Log Out</a></div>
+    
+    <form method="post" class="news">
+        {% csrf_token %}
+        
+        {% if friends_posts is not None %}
+            {% for friend_post in friends_posts %}
+            <h3>{{ friend_post.0.username }}</h3>
+            <button type="submit" name="view" value="{{friend_post.0.email}}">View Profile</button>
+            <p><h4>post:</h4> {{ friend_post.1 }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if friends_photos is not None %}
+            {% for friend_photos in friends_photos %}
+            <h3>{{ friend_photos.0.username }}</h3>
+            <button type="submit" name="view" value="{{friend_photos.0.email}}">View Profile</button>
+            <div><img src="{{ friend_photos.1.image.url }}" alt="Photo"></div>
+            {% endfor %}
+        {% endif %}
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+.center-form {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5em;
+    color: blue;
+ }
+
+ .center-form button {
+    margin-top: 10px; 
+    font-size: 0.7em;
+    color: blue;
+ }
+ h1{
+    text-align: center;
+    color: rgb(77, 77, 231);
+ }
+ .text{
+     margin-top: 30px;
+     text-align: center;
+     color: red;
+ }
+ .username {
+    font-size: 1.3em;
+    color: red;
+    display: inline;
+ }
+ a{
+     color: rgb(99, 99, 231);
+     font-size: 0.7em;
+ }

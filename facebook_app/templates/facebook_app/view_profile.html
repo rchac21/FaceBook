@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Profile</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_profile.css' %}">
+</head>
+<body>
+    <div class="profile">
+        <div>
+            <h1>View Profile</h1>
+            <div><img src="{{ profile_photo.image.url }}" alt="Photo"></div>
+            <h4>{{ username }}</h4>
+            <p>{{ num_mutual_friends }} mutual friends</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="connection">
+                    <button type="submit" name="connection_type" value="{{ connection_type }}">{{ text }}</button> 
+                </div>
+            </form>
+            
+            <form action="{% url 'view_other_posts' email=email my_email=my_email %}" class="pos-pot">
+                {% csrf_token %}
+                <button type="submit">posts</button>
+            </form>
+            <form action="{% url 'view_other_photos' email=email my_email=my_email %}" class="pos-pot">
+                {% csrf_token %}
+                <button type="submit">photos</button>
+            </form>
+
+            <h3>Details</h3>
+
+            {% if experience is not None %}
+            <p><h4>Experience:</h4> {{ experience }}</p>
+            {% endif %}
+
+            {% if university is not None %}
+            <p><h4>University:</h4> {{ university }}</p>
+            {% endif %}
+
+            {% if school is not None %}
+            <p><h4>School:</h4> {{ school }}</p>
+            {% endif %}
+
+            {% if country is not None and city is not None %}
+            <p><h4>Location:</h4> {{ city }}, {{ country }}</p>
+            {% endif %}
+
+            {% if country is not None and city is None %}
+            <p><h4>Location:</h4> {{ country }}</p>
+            {% endif %}
+
+            {% if country is None and city is not None %}
+            <p><h4>Location:</h4> {{ city }}</p>
+            {% endif %}
+
+            <form action="{% url 'other_personal_info' email=email my_email=my_email %}" class="pers-info">
+                {% csrf_token %}
+                <button type="submit">personal info</button>
+            </form>
+            <div class="friends">
+                <form action="{% url 'view_other_all_friends' email=email my_email=my_email %}">
+                    {% csrf_token %}
+                    <button type="submit">all friends</button>
+                </form>
+                <form action="{% url 'view_mutual_friends' email=email my_email=my_email %}">
+                    {% csrf_token %}
+                    <button type="submit">mutual friends</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="link"><a href="{% url 'main_page' my_email %}">Main Page</a></div>
+</body>
+</html>

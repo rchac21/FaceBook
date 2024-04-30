@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Photos</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_my_photos.css' %}">
+</head>
+<body>
+    <h1>Photos</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {% if photos is not None %}
+                {% for photo in photos %}
+                  <div class="user-photo">
+                    <img src="{{ photo.image.url }}" alt="Photo">
+                    <div class="but">
+                       <button type="submit" name="delete" value="{{ photo.id }}">delete photo</button> 
+                       <button type="submit" name="set_profile" value="{{ photo.id }}">set profile</button>
+                    </div>
+                  </div>
+                {% endfor %}
+            {% else %}
+                <p>No Photos</p>
+            {% endif %}
+        </div>
+    </form>
+    <div class="link"><a href="{% url 'myProfile' email %}">My Profile</a></div>
+</body>
+</html>

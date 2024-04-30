@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    color: blue;
+}
+form{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5em;
+}
+button{
+    color: blue;
+    font-size: 0.7em;
+}

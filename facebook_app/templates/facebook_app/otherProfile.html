@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Serch Profile</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/otherProfile.css' %}">
+</head>
+<body>
+    <h1>Serch Profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="center-form">
+            <p>{{ form.as_p }}</p>
+            <button type="submit">Search</button>
+        </div>
+        {% if text is None %}
+            {% if users_profile is not None %}
+               <ul>
+                 {% for user_profile in users_profile %}
+                 {% csrf_token %}
+                    <li>
+                        <p class="username">{{ user_profile.username }}</p> 
+                        <a href="{% url 'view_profile' email=user_profile.email my_email=email %}">View Profile</a>
+                    </li>
+                {% endfor %}
+               </ul>
+            {% endif %}
+        {% else %}
+            <p class="text">{{ text }}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

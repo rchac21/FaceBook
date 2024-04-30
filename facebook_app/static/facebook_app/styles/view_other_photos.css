@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    color: blue;
+    margin-bottom: 30px;
+}
+.link{
+    margin-top: 50px;
+    font-size: 1.2em;
+    text-align: center;
+}
+.link a{
+    color: red;
+}
+.no-photo{
+    text-align: center;
+}

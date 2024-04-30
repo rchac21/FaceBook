@@ -1,0 +1,41 @@
+from django.urls import path
+from facebook_app import views
+
+
+urlpatterns = [
+    path('', views.login, name = 'login'),
+    path('registration/', views.registration, name = 'registration'),
+    path('login/', views.login, name = 'login'),
+    path('main_page/<str:email>/', views.main_page, name = 'main_page'),
+    path('settings/<str:email>/', views.settings, name = 'settings'),
+    path('myProfile/<str:email>', views.myProfile, name = 'myProfile'),
+    path('otherProfile/<str:email>/<str:text>', views.otherProfile, name = 'otherProfile'),
+    path('find_new_friends/<str:email>', views.find_new_friends, name = 'find_new_friends'),
+    path('remove_account/<str:email>', views.remove_account, name = 'remove_account'),
+    path('view_my_photos/<str:email>', views.view_my_photos, name = 'view_my_photos'),
+    path('upload_photo/<str:email>/<str:text>', views.upload_photo, name = 'upload_photo'),
+    path('posts/<str:email>', views.posts, name = 'posts'),
+    path('personal_info/<str:email>', views.personal_info, name = 'personal_info'),
+    path('view_all_friends/<str:email>', views.view_all_friends, name = 'view_all_friends'),
+    path('add_experience/<str:email>', views.add_experience, name = 'add_experience'),
+    path('add_university/<str:email>', views.add_university, name = 'add_university'),
+    path('add_school/<str:email>', views.add_school, name = 'add_school'),
+    path('add_country/<str:email>', views.add_country, name = 'add_country'),
+    path('add_city/<str:email>', views.add_city, name = 'add_city'),
+    path('change_phone/<str:email>', views.change_phone, name = 'change_phone'),
+    path('change_email/<str:email>', views.change_email, name = 'change_email'),
+    path('change_gender/<str:email>', views.change_gender, name = 'change_gender'),
+    path('change_birhday/<str:email>', views.change_birhday, name = 'change_birhday'),
+    path('add_post/<str:email>', views.add_post, name = 'add_post'),
+    path('change_password/<str:email>', views.change_password, name = 'change_password'),
+    path('change_username/<str:email>', views.change_username, name = 'change_username'),
+    path('view_profile/<str:email>/<str:my_email>', views.view_profile, name = 'view_profile'),
+    path('view_mutual_friends/<str:email>/<str:my_email>', views.view_mutual_friends, name = 'view_mutual_friends'),
+    path('other_personal_info/<str:email>/<str:my_email>', views.other_personal_info, name = 'other_personal_info'),
+    path('view_other_posts/<str:email>/<str:my_email>', views.view_other_posts, name = 'view_other_posts'),
+    path('view_other_photos/<str:email>/<str:my_email>', views.view_other_photos, name = 'view_other_photos'),
+    path('view_other_all_friends/<str:email>/<str:my_email>', views.view_other_all_friends, name = 'view_other_all_friends'),
+    path('remove_friend/<str:email>/<str:my_email>', views.remove_friend, name = 'remove_friend'),
+    path('response/<str:email>/<str:my_email>/<str:text>/<str:ff_email>', views.response, name = 'response'),
+]
+

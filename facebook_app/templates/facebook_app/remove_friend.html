@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Remove Friend</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/remove_friend.css' %}">
+</head>
+<body>
+    <h1>Remove Friend</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure that you want delete friend ?</p>
+        <button type="submit">delete friend</button>
+    </form>
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+</body>
+</html>

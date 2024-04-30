@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    color: blue;
+ }
+.link{
+       text-align: center;
+       margin-bottom: 30px;
+       margin-top: 50px;
+       font-size: 1.2em;
+   }
+.link a{
+       color: red;
+ }
+ button{
+       font-size: 0.7em;
+       display: inline;
+       color: blue;
+ }
+ p{
+    text-align: center;
+ }
+ span{
+       font-size: 1.1em;
+ }
+.mutual-frnd{
+    margin-bottom: 10px;
+ }
+.no-frnd{
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View All Friends</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/view_other_all_friends.css' %}">
+</head>
+<body>
+    <h1>All Friends</h1>
+    {% if friends is not None %}
+        <form method="post">
+            {% csrf_token %}
+            {% for friend in friends %}
+              <div class="frnd">
+               <span>{{ friend.0 }}</span>
+               <button type="submit" name="view" value="{{ friend.1 }}">View Profile</button> 
+               {% if friend.2 == 'friend' %}
+                  <button type="submit" name="delete" value="{{ friend.1 }}">Delete Friend</button> 
+               {% elif friend.2 == 'response' %}
+                  <button type="submit" name="response" value="{{ friend.1 }}">Response</button>
+               {% elif friend.2 == 'request' %}
+                  <button type="submit" name="remove_request" value="{{ friend.1 }}">Remove Requset</button> 
+               {% else %}
+                  {% if friend.2 == 'no friend' %}
+                     <button type="submit" name="add_friend" value="{{ friend.1 }}">Add Friend</button> 
+                  {% endif %}
+               {% endif %}
+              </div>
+            {% endfor %}
+        </form>
+    {% else %}
+        <p class="no-frnd">No Friends</p>
+    {% endif %}
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Message Text</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/message_text.css' %}">
+</head>
+<body>
+    <h1>{{ text }}</h1>
+    <form action="{% url 'login' %}">
+        {% csrf_token %}
+        <button type="submit">Login Page</button>
+    </form>
+</body>
+</html>

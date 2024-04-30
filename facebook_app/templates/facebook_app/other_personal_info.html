@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/other_personal_info.css' %}">
+</head>
+    <body>
+        <h1>Personal Info</h1>
+    
+        <h3>experience</h3>
+        {% if experience is not None %}
+           <p><h4>work:</h4> {{ experience }}</p>
+        {% endif %}
+
+        <h3>education</h3>
+        {% if university is not None %}
+           <p><h4>University:</h4> {{ university }}</p> 
+        {% endif %}
+
+        {% if school is not None %}
+           <p><h4>School:</h4> {{ school }}</p>
+        {% endif %}
+
+        <h3>location</h3>
+        {% if country is not None and city is not None %}
+           <p><h4>Location:</h4> {{ city }}, {{ country }}</p>
+        {% endif %}
+
+        {% if country is not None and city is None %}
+           <p><h4>Location:</h4> {{ country }}</p>
+        {% endif %}
+
+        {% if country is None and city is not None %}
+           <p><h4>Location:</h4> {{ city }}</p>
+        {% endif %}
+
+        <h3>contact info</h3>
+        <p><h4>phone number:</h4> {{ phone_num }}</p>
+        <p><h4>email:</h4> {{ email }}</p>
+
+        <h3>main info</h3>
+        <p><h4>gender:</h4> {{ gender }}</p>
+        <p><h4>birthday:</h4> {{ birthday }}</p>
+    
+    <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+    </body>
+</html>

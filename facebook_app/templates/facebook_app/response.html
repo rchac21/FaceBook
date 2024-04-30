@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Response</title>
+    <link rel="stylesheet" href="{% static 'facebook_app/styles/response.css' %}">
+</head>
+<body>
+    <h1>Response</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="response" value="accept_request">Accept Request</button> 
+        <button type="submit" name="response" value="delete_request">Delete Request</button> 
+    </form>
+    {% if ff_email is None %}
+       <div class="link"><a href="{% url 'view_profile' email=email my_email=my_email %}">Profile page</a></div>
+    {% else %}
+       <div class="link"><a href="{% url 'view_other_all_friends' email=email my_email=my_email %}">View All friends</a></div>
+    {% endif %}
+</body>
+</html>
